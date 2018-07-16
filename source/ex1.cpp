@@ -17,7 +17,7 @@ void init(StackType stack){
   top = 0;
 }
 
-int isEcountpty(){
+int isEmpty(){
   return top == 0;
 }
 
@@ -32,7 +32,7 @@ void push(keyType el, StackType stack){
 }
 
 keyType pop(StackType stack){
-  if(isEcountpty())
+  if(isEmpty())
     printf("stack underflow");
   else return stack[--top];
 }
@@ -74,7 +74,7 @@ void ex1()
         type = encode(&c);
         if(type == 0){//end of string
         //fix left-over open brackets
-            while(!isEcountpty()){
+            while(!isEmpty()){
             tmp = pop(a);
               pair = encode(&(tmp.c));
               res[count].c = decode(pair - difference);
@@ -97,8 +97,8 @@ void ex1()
             return;
           }
         }else{
-          if(!isEcountpty()){
-            while(!isEcountpty()){
+          if(!isEmpty()){
+            while(!isEmpty()){
               tmp = pop(a);
               pair = encode(&(tmp.c));
               if((type + difference) != pair){
